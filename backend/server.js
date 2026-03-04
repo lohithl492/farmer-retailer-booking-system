@@ -5,59 +5,35 @@ const cors = require("cors");
 
 const app = express();
 
-/* =========================
-   MIDDLEWARE
-========================= */
 app.use(cors());
 app.use(express.json());
 
-/* =========================
-   SERVE FRONTEND FILES
-========================= */
-app.use(express.static(path.join(__dirname, "../frontend")));
+/* ===== SERVE FRONTEND ===== */
+const frontendPath = path.join(__dirname, "../frontend");
+app.use(express.static(frontendPath));
 
-/* =========================
-   ROOT ROUTE
-========================= */
+/* ===== ROUTES ===== */
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/index.html"));
+  res.sendFile(path.join(frontendPath, "index.html"));
 });
 
-/* =========================
-   API HEALTH CHECK
-========================= */
+/* ===== HEALTH CHECK ===== */
 app.get("/api/health", (req, res) => {
-  res.json({
-    status: "Server running",
-    project: "Farmer Retailer Booking System"
-  });
+  res.json({ status: "Server running" });
 });
 
-/* =========================
-   MONGODB CONNECTION
-========================= */
-
+/* ===== MONGODB ===== */
 const MONGO_URI =
-  "mongodb+srv://lohith:lohith0562.@cluster0.jglbaic.mongodb.net/farmer-retailer-db?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://lohith:lohith0562.@cluster0.jglbaic.mongodb.net/farmer-retailer-db?retryWrites=true&w=majority";
 
 mongoose
   .connect(MONGO_URI)
-  .then(() => {
-    console.log("✅ MongoDB Connected Successfully!");
-  })
-  .catch((err) => {
-    console.error("❌ MongoDB Connection Failed:", err);
-  });
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log(err));
 
-/* =========================
-   SERVER START
-========================= */
-
+/* ===== SERVER ===== */
 const PORT = process.env.PORT || 10000;
 
 app.listen(PORT, () => {
-  console.log("🚀 Farmer-Retailer Booking System 🚀");
-  console.log("Server running on port:", PORT);
-  console.log("API path: /api");
-  console.log("Health: /api/health");
+  console.log(`Server running on port ${PORT}`);
 });
