@@ -1,39 +1,28 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
 
 const app = express();
+const PORT = process.env.PORT || 10000;
 
 app.use(cors());
 app.use(express.json());
 
-/* ===== SERVE FRONTEND ===== */
-const frontendPath = path.join(__dirname, "../frontend");
-app.use(express.static(frontendPath));
+/* SERVE FRONTEND */
+app.use(express.static(path.join(__dirname, "../frontend")));
 
-/* ===== ROUTES ===== */
+/* HOME PAGE */
 app.get("/", (req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
+    res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
-/* ===== HEALTH CHECK ===== */
+/* HEALTH CHECK */
 app.get("/api/health", (req, res) => {
-  res.json({ status: "Server running" });
+    res.json({ status: "Server Running Successfully" });
 });
 
-/* ===== MONGODB ===== */
-const MONGO_URI =
-  "mongodb+srv://lohith:lohith0562.@cluster0.jglbaic.mongodb.net/farmer-retailer-db?retryWrites=true&w=majority";
-
-mongoose
-  .connect(MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log(err));
-
-/* ===== SERVER ===== */
-const PORT = process.env.PORT || 10000;
-
+/* START SERVER */
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+    console.log("🚀 Farmer-Retailer Booking System 🚀");
+    console.log(`Server running on port: ${PORT}`);
 });
