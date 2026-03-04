@@ -1,0 +1,154 @@
+/* ================= NAVBAR ================= */
+
+.dashboard-nav {
+    background: linear-gradient(135deg, #5f72bd, #9b23ea);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.nav-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.welcome-text {
+    font-size: 14px;
+    margin-top: 4px;
+    color: #f0f0f0;
+}
+
+#welcome-name,
+#farmer-name {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* ================= SIDEBAR ================= */
+
+.dashboard-content {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background: #f5f5f5;
+    padding-top: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 15px 25px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.sidebar a:hover {
+    color: #5f72bd;
+}
+
+/* ================= MAIN CONTENT ================= */
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    background: #f9fafc;
+}
+
+.section {
+    display: none;
+}
+
+.section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* ================= CROP CARD ================= */
+
+.crop-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+.crop-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.crop-card-content {
+    padding: 20px;
+}
+
+.crop-card-content h3 {
+    margin-bottom: 10px;
+}
+
+.crop-card-content p {
+    margin: 6px 0;
+}
+
+.crop-card-content button {
+    margin-right: 8px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.crop-card-content button:hover {
+    opacity: 0.9;
+}
+
+.crop-card-content button:nth-child(1) {
+    background: #e0e0e0;
+}
+
+.crop-card-content button:nth-child(2) {
+    background: #5f72bd;
+    color: white;
+}
+
+.crop-card-content button:nth-child(3) {
+    background: #ff3b3b;
+    color: white;
+}
+
+/* ================= LOGOUT BUTTON ================= */
+
+.btn-logout {
+    background: white;
+    color: #5f72bd;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-logout:hover {
+    background: #f2f2f2;
+}
