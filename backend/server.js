@@ -1,28 +1,29 @@
 const express = require("express");
 const path = require("path");
-const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 10000;
 
-app.use(cors());
-app.use(express.json());
-
-/* SERVE FRONTEND */
+/* Serve frontend */
 app.use(express.static(path.join(__dirname, "../frontend")));
 
-/* HOME PAGE */
+/* Routes */
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/index.html"));
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
-/* HEALTH CHECK */
-app.get("/api/health", (req, res) => {
-    res.json({ status: "Server Running Successfully" });
+app.get("/farmer", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/farmer-dashboard.html"));
 });
 
-/* START SERVER */
+app.get("/retailer", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/retailer-dashboard.html"));
+});
+
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/admin-dashboard.html"));
+});
+
 app.listen(PORT, () => {
-    console.log("🚀 Farmer-Retailer Booking System 🚀");
-    console.log(`Server running on port: ${PORT}`);
+  console.log("Server running on port:", PORT);
 });
