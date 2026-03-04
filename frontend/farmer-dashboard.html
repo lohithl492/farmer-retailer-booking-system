@@ -1,95 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmer Dashboard</title>
-    <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/farmer.css">
+
+<title>Farmer Dashboard</title>
+
+<link rel="stylesheet" href="/css/style.css">
+
 </head>
+
 <body>
 
-<!-- ================= NAVBAR ================= -->
-<nav class="dashboard-nav">
-    <div class="nav-left">
-        <div class="logo">
-            🌾 Farmer Portal
-        </div>
-        <div class="welcome-text">
-            Welcome, <span id="farmer-name">Farmer</span>
-        </div>
-    </div>
+<div class="container">
 
-    <button onclick="logout()" class="btn btn-logout">
-        Logout
-    </button>
-</nav>
+<h1>👨‍🌾 Farmer Dashboard</h1>
 
-<!-- ================= MAIN LAYOUT ================= -->
-<div class="dashboard-content">
+<p>Here farmers can upload crops and manage prices.</p>
 
-    <!-- ================= SIDEBAR ================= -->
-    <div class="sidebar">
-        <ul>
-            <li><a href="#" onclick="showSection('upload-crop')" class="active">📤 Upload Crop</a></li>
-            <li><a href="#" onclick="showSection('my-crops')">🌾 My Crops</a></li>
-            <li><a href="#" onclick="showSection('booking-requests')">📦 Booking Requests</a></li>
-            <li><a href="#" onclick="showSection('other-crops')">👨‍🌾 Other Farmers</a></li>
-        </ul>
-    </div>
+<a href="/">⬅ Back to Home</a>
 
-    <!-- ================= MAIN CONTENT ================= -->
-    <div class="main-content">
-
-        <!-- ================= Upload Crop Section ================= -->
-        <section id="upload-crop" class="section active">
-            <h2>Upload Crop</h2>
-
-            <form onsubmit="uploadCrop(event)">
-                <input type="text" id="crop-name" placeholder="Crop Name" required><br><br>
-                <input type="number" id="crop-quantity" placeholder="Quantity" required><br><br>
-
-                <select id="crop-unit" required>
-                    <option value="">Select Unit</option>
-                    <option value="kg">kg</option>
-                    <option value="quintal">quintal</option>
-                    <option value="ton">ton</option>
-                </select><br><br>
-
-                <input type="number" id="crop-price" placeholder="Price" required><br><br>
-                <input type="text" id="crop-location" placeholder="Location" required><br><br>
-                <input type="date" id="crop-harvest-date" required><br><br>
-                <textarea id="crop-description" placeholder="Description"></textarea><br><br>
-
-                <input type="file" id="crop-images" multiple accept="image/*"><br><br>
-
-                <button type="submit" class="btn btn-primary">Upload</button>
-            </form>
-        </section>
-
-        <!-- ================= My Crops Section ================= -->
-        <section id="my-crops" class="section">
-            <h2>Your Crops</h2>
-            <div id="my-crops-list"></div>
-        </section>
-
-        <!-- ================= Booking Requests Section ================= -->
-        <section id="booking-requests" class="section">
-            <h2>📦 Booking Requests</h2>
-            <div id="booking-requests-list">
-                <p class="loading">Loading booking requests...</p>
-            </div>
-        </section>
-
-        <!-- ================= Other Farmers Section ================= -->
-        <section id="other-crops" class="section">
-            <h2>Other Farmers' Crops</h2>
-            <div id="other-crops-list"></div>
-        </section>
-
-    </div>
 </div>
 
-<script src="js/farmer.js"></script>
 </body>
 </html>
